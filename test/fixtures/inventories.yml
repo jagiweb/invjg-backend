@@ -1,0 +1,17 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  date: 2022-06-19
+  item_id: 1
+  quantity: 1
+  unit_cost: 1
+  city: one
+  store_id: 1
+
+two:
+  date: 2022-06-19
+  item_id: 1
+  quantity: 1
+  unit_cost: 1
+  city: two
+  store_id: 1
