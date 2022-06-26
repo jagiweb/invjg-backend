@@ -14,6 +14,15 @@ Rails.application.routes.draw do
   # ##### ADMIN ROUTES #######
   post "/admin/signin", to: "admins#admin_signin"
   get "/admin/validate", to: "admins#validate"
+  get "/admin/get_menu", to: "admins#get_menu"
 
+  # ##### COMPANY ROUTES ######
+  post "/admin/company_create", to: "companies#create_company"
+  get "/admin/get_company", to: "companies#get_company"
+  
+  # ##### SUPPLIER ROUTES ######
 
+  # NEED TO MODIFY Suppiers for Suppliers
+  post "/admin/supplier_create", to: "distributors#create_supplier" 
+  get "/admin/get_supplier", to: "distributors#get_supplier" 
 end

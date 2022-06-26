@@ -15,7 +15,7 @@ ActiveRecord::Schema.define(version: 2022_06_19_203513) do
   create_table "admins", force: :cascade do |t|
     t.string "username"
     t.string "password_digest"
-    t.string "emaill"
+    t.string "email"
     t.string "fullname"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
@@ -37,6 +37,18 @@ ActiveRecord::Schema.define(version: 2022_06_19_203513) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["admin_id"], name: "index_companies_on_admin_id"
+  end
+
+  create_table "distributors", force: :cascade do |t|
+    t.string "name"
+    t.string "address"
+    t.string "website"
+    t.string "pdf"
+    t.string "phone"
+    t.integer "company_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["company_id"], name: "index_distributors_on_company_id"
   end
 
   create_table "inventories", force: :cascade do |t|
@@ -108,24 +120,12 @@ ActiveRecord::Schema.define(version: 2022_06_19_203513) do
     t.index ["city_id"], name: "index_supervisors_on_city_id"
   end
 
-  create_table "suppiers", force: :cascade do |t|
-    t.string "name"
-    t.string "address"
-    t.string "website"
-    t.string "pdf"
-    t.string "phone"
-    t.integer "company_id", null: false
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.index ["company_id"], name: "index_suppiers_on_company_id"
-  end
-
   add_foreign_key "cities", "companies"
   add_foreign_key "companies", "admins"
+  add_foreign_key "distributors", "companies"
   add_foreign_key "inventories", "cities"
   add_foreign_key "items", "suppliers"
   add_foreign_key "sellers", "stores"
   add_foreign_key "stores", "cities"
   add_foreign_key "supervisors", "cities"
-  add_foreign_key "suppiers", "companies"
 end

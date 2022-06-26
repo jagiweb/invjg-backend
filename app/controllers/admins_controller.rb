@@ -12,7 +12,7 @@ class AdminsController < ApplicationController
     def validate
         admin = get_admin
         if admin
-            render json: {token: generate_token({id: admin.id}), admin: admin}
+            render json: {token: generate_token({id: admin.id}), admin: admin, admin_id: admin.id}
         else
             render json: {message: "You are not authorized"}
         end
