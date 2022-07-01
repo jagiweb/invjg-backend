@@ -21,8 +21,7 @@ Rails.application.routes.draw do
   get "/admin/get_company", to: "companies#get_company"
   
   # ##### SUPPLIER ROUTES ######
-
-  # NEED TO MODIFY Suppiers for Suppliers
   post "/admin/supplier_create", to: "distributors#create_supplier" 
   get "/admin/get_supplier", to: "distributors#get_supplier" 
+  get "/admin/get_all_suppliers", to: "admins#all_admin_distributors"
 end

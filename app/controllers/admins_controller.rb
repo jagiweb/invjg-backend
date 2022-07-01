@@ -9,6 +9,21 @@ class AdminsController < ApplicationController
         end
     end
 
+    def all_admin_distributors
+        admin = get_admin
+        if admin 
+            companies = admin.companies
+            if companies.size != 0
+                suppliers = companies.map{|company| company.distributors}
+                render json: {success: true, message: "Distribuidores cargados exitosamente", suppliers: suppliers}
+            else
+                render json: {success: false, message: "Este admin no tiene empresas registradas a su nombre"}
+            end
+        else
+            render json: {success: false, message: "You are not authorized"}
+        end
+    end
+
     def validate
         admin = get_admin
         if admin
