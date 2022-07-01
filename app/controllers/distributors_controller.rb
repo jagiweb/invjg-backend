@@ -3,7 +3,7 @@ class DistributorsController < ApplicationController
         company = Company.find(params[:company_id])
         if company
             supplier = Distributor.create(supplier_params)
-            if company.valid?
+            if supplier.valid?
                 render json:{success: true, message: "El proveedor fue creado exitosamente.", supplier: supplier}
             else
                 render json: {success: false, message: "El proveedor no pudo ser creado, chequea los datos nuevamente."}
